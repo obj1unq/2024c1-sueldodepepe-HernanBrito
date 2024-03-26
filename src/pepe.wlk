@@ -12,8 +12,12 @@ object cadete {
 }
 
 object medioTiempo{
+	var netoMedioTiempo = 0
 	method categoriaBase(categoria){
-		return categoria.valor() / 2
+		netoMedioTiempo = categoria.neto() / 2
+	}
+	method neto(){
+		return netoMedioTiempo
 	}
 }
 
@@ -172,3 +176,63 @@ object sofia{
 	}
 }
 
+object roque {
+	const neto = 28000	
+	var categoria = cadete
+	var bonoResultado = resultadoNulo
+	
+	
+	method categoria(_categoria) {
+		categoria = _categoria 
+	}
+	
+	method bonoResultado(_bonoResultado){
+		bonoResultado=_bonoResultado
+	}
+	
+	method sueldo() {
+		return neto + self.resultado() + 9000
+	}
+	
+	method resultado() {
+		return bonoResultado.valor(self)
+	}
+}
+
+
+object ernesto{
+	var categoria = cadete
+	var bonoPresentismo = presentismoNulo
+	var faltas = 0
+	
+	
+	method faltas(_faltas) {
+		faltas = _faltas
+	}
+	
+	method faltas() {
+		return faltas	
+	}
+	
+	method categoria(_categoria) {
+		categoria = _categoria 
+	}
+	
+	
+	method bonoPresentismo(_bonoPresentismo) {
+		bonoPresentismo = _bonoPresentismo
+	}
+	
+	method sueldo() {
+		return self.neto() + self.presentismo() 
+	}
+	
+	method neto() {
+		return categoria.neto()	
+	}
+	
+	
+	method presentismo() {
+		return bonoPresentismo.valor(self)
+	}
+}

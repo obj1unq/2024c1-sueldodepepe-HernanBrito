@@ -38,4 +38,25 @@ describe "Sueldo Pepe" {
 		assert.equals(26000 , sofia.sueldo() )
 	}
 	
+	test "La categoría base de medio tiempo es cadete., Pepe tiene categoría medio tiempo.
+			bono por resultados de porcentaje, y bono por presentismo demagógico ,"{
+		medioTiempo.categoriaBase(cadete)
+		pepe.categoria(medioTiempo)
+		pepe.bonoResultado(porcentual)
+		pepe.bonoPresentismo(demagogico)
+		pepe.faltas(1)
+		assert.equals(11500 , pepe.sueldo())
+	}
+	
+	test "Roque tiene bono por resultados monto fijo."{
+		roque.bonoResultado(fijo)
+		assert.equals(37800 , roque.sueldo())
+	}
+	
+	test "Ernesto tiene como compañero a Pepe, y bono por presentismo de ajuste."{
+		medioTiempo.categoriaBase(cadete)
+		ernesto.categoria(medioTiempo)
+		ernesto.bonoPresentismo(ajuste)
+		assert.equals(10100 , ernesto.sueldo())	
+	}
 }
