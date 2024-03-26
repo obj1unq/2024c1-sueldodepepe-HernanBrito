@@ -11,6 +11,12 @@ object cadete {
 	}
 }
 
+object medioTiempo{
+	method categoriaBase(categoria){
+		return categoria.valor() / 2
+	}
+}
+
 object vendedor{
 	const valorNeto = 16000
 	var muchasVentas = true
@@ -101,10 +107,6 @@ object pepe {
 	var bonoPresentismo = presentismoNulo
 	var faltas = 0
 	
-	method medioTiempoCategoriaBase(_categoria){
-		return (self.neto() /2)
-	}
-	
 	method faltas(_faltas) {
 		faltas = _faltas
 	}
@@ -146,11 +148,7 @@ object pepe {
 object sofia{
 	var categoria = cadete
 	var bonoResultado = resultadoNulo
-	
-	method medioTiempoCategoriaBase(_categoria){
-		return (self.neto() /2)
-	}
-	
+
 	
 	method categoria(_categoria) {
 		categoria = _categoria 
